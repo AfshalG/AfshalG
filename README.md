@@ -1,6 +1,6 @@
-# Hi 👋, I'm Afshal Gulam!
-
-I'm a Computer Engineering student at NUS! 
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=28&duration=4000&pause=1000&color=FF5733&center=true&vCenter=true&width=450&lines=Hi+%F0%9F%91%8B%2C+I'm+Afshal+Gulam!;I'm+a+Year+1+Computer+Engineering+Student;at+NUS!+%F0%9F%8C%8F" alt="Typing SVG" />
+</p>
 
 ---
 
@@ -20,6 +20,7 @@ I'm a Computer Engineering student at NUS!
 <img align="left" alt="Node.js" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"/>
 <img align="left" alt="React" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"/>
 <img align="left" alt="MongoDB" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"/>
+<img align="left" alt="MySQL" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"/>
 <img align="left" alt="Git" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"/>
 <img align="left" alt="VS Code" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"/>
 <img align="left" alt="Linux" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"/>
@@ -43,3 +44,5 @@ I'm a Computer Engineering student at NUS!
 - **Total PRs:** 40 
 - **Total Issues:** 58 
 - **Contributed to (last year):** 5 repositories
+
+
