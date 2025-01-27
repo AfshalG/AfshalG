@@ -27,6 +27,7 @@
 <img align="left" alt="Git" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"/>
 <br/>
 
+
 ---
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=10&theme=radical)
