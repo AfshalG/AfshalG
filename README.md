@@ -29,12 +29,10 @@
 
 ---
 
-### 📊 Most Used Languages:
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=10&theme=radical)
 
 ---
 
-### 📈 Afshal Gulam's GitHub Stats:
 ![AfshalG's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical)
 
 ---
