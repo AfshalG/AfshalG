@@ -1,6 +1,6 @@
 # Hi 👋, I'm Afshal Gulam!
 
-I'm a Year 1 Computer Engineering student at NUS! 
+I'm a Computer Engineering student at NUS! 
 
 ---
 
