@@ -34,7 +34,7 @@
 
 ---
 
-![AfshalG's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical)
+[comment]: <![AfshalG's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical)> (This is a comment, it will not be included)
 
 ---
 
