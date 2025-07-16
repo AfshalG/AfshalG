@@ -5,10 +5,9 @@
 ---
 
 ### 🔗 Connect with me:
-<p align="left">
-<a href="https://linkedin.com/in/afshal-g" target="blank"><img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="afshal-g" /></a>
-<a href="https://instagram.com/af.shal" target="blank"><img align="center" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="af.shal" /></a>
-</p>
+[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)
+
+[<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
 
 ---
 
