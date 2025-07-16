@@ -26,7 +26,6 @@
     <img alt="Arduino" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg"/>
     <img alt="VS Code" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"/>
 </p>
-
 <br/>
 
 ---
