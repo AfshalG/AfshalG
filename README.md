@@ -30,13 +30,6 @@
 
 ---
 
-### 🚀 My Key Projects
-
-<p align="center">
-  <a href="https://github.com/AfshalG/taskgenie-ai"><img src="https://github-readme-showcase.vercel.app/api?repo=taskgenie-ai&user=AfshalG" alt="taskgenie-ai" width="400"></a>
-  <a href="https://github.com/AfshalG/Nusurvivors"><img src="https://github-readme-showcase.vercel.app/api?repo=Nusurvivors&user=AfshalG" alt="Nusurvivors" width="400"></a>
-</p>
-
 ### 📊 My GitHub Stats & Top Languages
 <p align="center">
     <img align="center" src="https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical&count_private=true&hide_border=true" alt="AfshalG's GitHub Stats" />
