@@ -36,3 +36,4 @@
     <img align="center" src="https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical&count_private=true&hide_border=true" alt="AfshalG's GitHub Stats" />
     <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=10&theme=radical&hide_border=true" alt="Top Languages" />
 </p>
+
