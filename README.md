@@ -35,3 +35,10 @@
     <img align="center" src="https://github-readme-stats.vercel.app/api?username=AfshalG&show_icons=true&theme=radical&count_private=true&hide_border=true" alt="AfshalG's GitHub Stats" />
     <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=10&theme=radical&hide_border=true" alt="Top Languages" />
 </p>
+
+### 🚀 My Key Projects
+
+<p align="center">
+  <a href="https://github.com/AfshalG/taskgenie-ai"><img src="https://github-readme-showcase.vercel.app/api?repo=taskgenie-ai&user=AfshalG" alt="taskgenie-ai" width="400"></a>
+  <a href="https://github.com/AfshalG/Nusurvivors"><img src="https://github-readme-showcase.vercel.app/api?repo=Nusurvivors&user=AfshalG" alt="Nusurvivors" width="400"></a>
+</p>
