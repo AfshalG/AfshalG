@@ -5,9 +5,7 @@
 ---
 
 ### 🔗 Connect with me:
-[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)
-
-[<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
+[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)[<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
 
 ---
 
