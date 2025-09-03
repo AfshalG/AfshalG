@@ -1,4 +1,4 @@
-<p align="center">
+> <p align="center">
     <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=28&duration=4500&pause=1000&color=FF5733
   &center=true&vCenter=true&width=700&lines=Hi+%F0%9F%91%8B%2C+I'm+Afshal+Gulam!;I'm+studying+Computer+Engineering+at+NUS!"
    alt="Typing SVG" />
@@ -55,3 +55,5 @@
       <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_
   count=10&theme=radical&hide_border=true" alt="Top Languages" />
   </p>
+
+
