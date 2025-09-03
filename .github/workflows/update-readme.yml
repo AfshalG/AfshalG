@@ -1,0 +1,62 @@
+name: Update README with Resume Skills
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills.json'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Generate Resume Skills Section
+        run: |
+          node <<'EOF'
+          const fs = require("fs");
+
+          const skills = JSON.parse(fs.readFileSync("skills.json", "utf8"));
+          const readme = fs.readFileSync("README.md", "utf8");
+
+          function renderIcons(items) {
+            return items
+              .map((s) => {
+                if (s.icon && s.icon.trim() !== "") {
+                  return `    <img alt="${s.name}" width="40px" src="${s.icon}"/>`;
+                } else {
+                  return `    <!-- ${s.name} - icon needed -->`;
+                }
+              })
+              .join("\n");
+          }
+
+          const section = `### 💻 Languages and Tools:
+<p align="left">
+${renderIcons(skills.languages)}
+${renderIcons(skills.frameworks)}
+${renderIcons(skills.ai_ml)}
+${renderIcons(skills.databases)}
+${renderIcons(skills.tools)}
+</p>`;
+
+          const newReadme = readme.replace(
+            /<!--SKILLS_START-->([\s\S]*?)<!--SKILLS_END-->/,
+            `<!--SKILLS_START-->\n${section}\n<!--SKILLS_END-->`
+          );
+
+          fs.writeFileSync("README.md", newReadme);
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet || git commit -m "chore: auto-update skills section"
+          git push
