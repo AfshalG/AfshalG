@@ -61,4 +61,3 @@
 ### 🏆 Recent Achievements
 - 🥇 **NUS Orbital Judges' Choice Award** - TaskGenie (Aug 2025)
 - 🥈 **DSTA BrainHack Semifinalist** - AI/ML Competition (Jun 2025)
-- 📚 **Residential Assistant** - NUS UTown (May 2025 - Present)
