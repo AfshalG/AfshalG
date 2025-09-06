@@ -17,11 +17,10 @@
   ],
   "ai_ml": [
     { "name": "PyTorch", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" },
-    { "name": "LangGraph", "icon": "" },
-    { "name": "Vercel AI SDK", "icon": "" },
+    { "name": "LangGraph", "icon": "https://seeklogo.com/vector-logo/616429/langgraph" },
     { "name": "YOLOv8", "icon": "" },
     { "name": "Stable Baselines3", "icon": "" },
-    { "name": "Gemini", "icon": "" }
+    { "name": "Gemini", "icon": "https://commons.wikimedia.org/wiki/File:Google-gemini-icon.svg" }
   ],
   "databases": [
     { "name": "MongoDB", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" },
