@@ -28,7 +28,7 @@
     <img alt="FastAPI" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg"/>
     <img alt="Tailwind CSS" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"/>
     <img alt="PyTorch" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg"/>
-    <!-- LangGraph - icon needed -->
+    <img alt="LangGraph" width="40px" src="https://seeklogo.com/vector-logo/616429/langgraph"/>
     <!-- Vercel AI SDK - icon needed -->
     <!-- YOLOv8 - icon needed -->
     <!-- Stable Baselines3 - icon needed -->
