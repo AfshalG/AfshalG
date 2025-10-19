@@ -42,6 +42,7 @@
     <img alt="Vercel" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg"/>
     <img alt="VS Code" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"/>
     <img alt="Linux" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"/>
+    <img alt="Arduino" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg"/>
 </p>
 <!--SKILLS_END-->
 
@@ -59,4 +60,5 @@
 
 ### 🏆 Recent Achievements
 - 🥇 **NUS Orbital Judges' Choice Award** - TaskGenie (Aug 2025)
+- 🏅 **NUS IDEATE Semi-Finalist** - REHABAND Smart Rehabilitation System (Oct 2025)
 - 🥈 **DSTA BrainHack Semifinalist** - AI/ML Competition (Jun 2025)
