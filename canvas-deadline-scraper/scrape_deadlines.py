@@ -141,6 +141,15 @@ class CanvasClient:
         })
         return files if files else []
 
+    def get_course_announcements(self, course_id: int, limit: int = 50) -> List[Dict]:
+        """Get recent announcements for a course"""
+        announcements = self._get(f'/courses/{course_id}/discussion_topics', params={
+            'only_announcements': True,
+            'per_page': limit,
+            'order_by': 'recent_activity'
+        })
+        return announcements if announcements else []
+
     def download_file(self, file_url: str, save_path: Path) -> bool:
         """Download a file from Canvas"""
         try:
@@ -321,6 +330,86 @@ Example format:
             logger.error(f"Failed to extract deadlines for {course_name}: {e}")
             return []
 
+    def extract_from_announcements(self, announcements: List[Dict], course_name: str, current_year: int) -> List[Dict]:
+        """Extract deadline updates from Canvas announcements"""
+        all_updates = []
+
+        for announcement in announcements:
+            title = announcement.get('title', '')
+            message = announcement.get('message', '')
+            posted_at = announcement.get('posted_at', '')
+
+            # Combine title and message
+            full_text = f"Title: {title}\n\n{message}"
+
+            # Skip if no deadline-related keywords
+            deadline_keywords = ['deadline', 'due', 'extended', 'postponed', 'rescheduled',
+                                'changed', 'updated', 'new date', 'assignment', 'exam', 'quiz']
+            if not any(keyword in full_text.lower() for keyword in deadline_keywords):
+                continue
+
+            logger.info(f"  Checking announcement: {title}")
+
+            # Use AI to extract deadline updates
+            prompt = f"""You are analyzing a Canvas announcement from "{course_name}" posted on {posted_at}.
+Extract any deadline changes, updates, or new deadlines mentioned.
+
+Current year context: {current_year}
+
+Announcement:
+{full_text[:5000]}
+
+Please extract and return ONLY a JSON array of deadline objects. Each object should have:
+- "date": ISO format date (YYYY-MM-DD)
+- "title": Brief description
+- "type": One of ["assignment", "exam", "quiz", "project", "presentation", "other"]
+- "weight": Percentage weight if mentioned (or null)
+- "notes": Any additional info, especially if this is a CHANGE/UPDATE
+- "is_update": true if this modifies an existing deadline, false if new
+
+Return ONLY the JSON array, no other text. If no deadlines found, return [].
+
+Example:
+[
+  {{"date": "2024-10-01", "title": "Assignment 2", "type": "assignment", "weight": 15,
+    "notes": "EXTENDED from Sep 24 to Oct 1", "is_update": true}}
+]
+"""
+
+            try:
+                message = self.client.messages.create(
+                    model="claude-sonnet-4-20250514",
+                    max_tokens=2048,
+                    temperature=0,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+
+                response_text = message.content[0].text.strip()
+
+                # Remove markdown code blocks
+                if response_text.startswith('```'):
+                    response_text = response_text.split('```')[1]
+                    if response_text.startswith('json'):
+                        response_text = response_text[4:]
+                    response_text = response_text.strip()
+
+                updates = json.loads(response_text)
+
+                for update in updates:
+                    update['course'] = course_name
+                    update['source'] = f"Announcement: {title}"
+                    update['announcement_date'] = posted_at
+
+                all_updates.extend(updates)
+                logger.info(f"    Found {len(updates)} deadline updates")
+
+            except json.JSONDecodeError:
+                logger.debug(f"No valid JSON from announcement: {title}")
+            except Exception as e:
+                logger.debug(f"Error processing announcement: {e}")
+
+        return all_updates
+
 
 def is_intro_document(filename: str) -> bool:
     """Check if filename suggests it's an intro/syllabus document"""
@@ -338,7 +427,42 @@ def is_intro_document(filename: str) -> bool:
     return False
 
 
-def format_deadlines_markdown(deadlines: List[Dict]) -> str:
+def detect_changes(old_deadlines: List[Dict], new_deadlines: List[Dict]) -> Dict[str, List[Dict]]:
+    """Detect changes between old and new deadline lists"""
+    changes = {
+        'added': [],
+        'removed': [],
+        'modified': []
+    }
+
+    # Create lookup dictionaries (key: course + title)
+    def make_key(d):
+        return f"{d.get('course', '')}_{d.get('title', '')}".lower()
+
+    old_dict = {make_key(d): d for d in old_deadlines}
+    new_dict = {make_key(d): d for d in new_deadlines}
+
+    # Find added and modified
+    for key, new_item in new_dict.items():
+        if key not in old_dict:
+            changes['added'].append(new_item)
+        else:
+            old_item = old_dict[key]
+            # Check if date changed
+            if old_item.get('date') != new_item.get('date'):
+                change_info = new_item.copy()
+                change_info['old_date'] = old_item.get('date')
+                changes['modified'].append(change_info)
+
+    # Find removed
+    for key, old_item in old_dict.items():
+        if key not in new_dict:
+            changes['removed'].append(old_item)
+
+    return changes
+
+
+def format_deadlines_markdown(deadlines: List[Dict], changes: Optional[Dict] = None) -> str:
     """Format deadlines as markdown"""
     if not deadlines:
         return "No deadlines found."
@@ -347,6 +471,39 @@ def format_deadlines_markdown(deadlines: List[Dict]) -> str:
     sorted_deadlines = sorted(deadlines, key=lambda x: x.get('date', '9999-12-31'))
 
     md = f"# Assignment Deadlines - Generated {datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n"
+
+    # Add changes summary if provided
+    if changes and (changes['added'] or changes['removed'] or changes['modified']):
+        md += "## ⚠️ RECENT CHANGES DETECTED\n\n"
+
+        if changes['modified']:
+            md += "### 📅 Date Changes:\n"
+            for item in changes['modified']:
+                old_date = item.get('old_date', 'Unknown')
+                new_date = item.get('date', 'Unknown')
+                course = item.get('course', 'Unknown')
+                title = item.get('title', 'Untitled')
+                md += f"- **{course}** - {title}: ~~{old_date}~~ → **{new_date}**\n"
+            md += "\n"
+
+        if changes['added']:
+            md += "### ✨ New Deadlines:\n"
+            for item in changes['added']:
+                date = item.get('date', 'TBD')
+                course = item.get('course', 'Unknown')
+                title = item.get('title', 'Untitled')
+                md += f"- **{course}** - {title} ({date})\n"
+            md += "\n"
+
+        if changes['removed']:
+            md += "### 🗑️ Removed/Cancelled:\n"
+            for item in changes['removed']:
+                course = item.get('course', 'Unknown')
+                title = item.get('title', 'Untitled')
+                md += f"- **{course}** - {title}\n"
+            md += "\n"
+
+        md += "---\n\n"
 
     current_month = None
     for deadline in sorted_deadlines:
@@ -377,11 +534,21 @@ def format_deadlines_markdown(deadlines: List[Dict]) -> str:
         weight_str = f" ({weight}%)" if weight else ""
         deadline_type = deadline.get('type', 'other').upper()
         notes = deadline.get('notes', '')
+        is_update = deadline.get('is_update', False)
+        source = deadline.get('source', '')
 
         md += f"### {formatted_date} - **{course}**\n"
         md += f"- **[{deadline_type}]** {title}{weight_str}\n"
-        if notes:
+
+        # Highlight updates from announcements
+        if is_update or 'EXTENDED' in notes.upper() or 'CHANGED' in notes.upper():
+            md += f"  - 🔔 **UPDATE:** {notes}\n"
+        elif notes:
             md += f"  - _{notes}_\n"
+
+        if source:
+            md += f"  - _Source: {source}_\n"
+
         md += "\n"
 
     return md
@@ -404,6 +571,16 @@ def main():
         return
 
     logger.info("Starting Canvas Deadline Scraper...")
+
+    # Load previous deadlines for change detection
+    old_deadlines = []
+    if Path('deadlines.json').exists():
+        try:
+            with open('deadlines.json', 'r', encoding='utf-8') as f:
+                old_deadlines = json.load(f)
+            logger.info(f"Loaded {len(old_deadlines)} previous deadlines for change detection")
+        except Exception as e:
+            logger.warning(f"Could not load previous deadlines: {e}")
 
     # Initialize clients
     canvas = CanvasClient(CANVAS_API_URL, CANVAS_API_TOKEN)
@@ -479,6 +656,31 @@ def main():
             deadlines = extractor.extract_deadlines(text, course_name, current_year)
             all_deadlines.extend(deadlines)
 
+        # Check announcements for deadline updates
+        logger.info(f"  Checking announcements for updates...")
+        announcements = canvas.get_course_announcements(course_id, limit=50)
+        logger.info(f"  Found {len(announcements)} announcements")
+
+        if announcements:
+            updates = extractor.extract_from_announcements(announcements, course_name, current_year)
+            if updates:
+                logger.info(f"  Extracted {len(updates)} deadline updates from announcements")
+                all_deadlines.extend(updates)
+
+    # Detect changes
+    changes = None
+    if old_deadlines:
+        logger.info(f"\nDetecting changes from previous run...")
+        changes = detect_changes(old_deadlines, all_deadlines)
+        total_changes = len(changes['added']) + len(changes['removed']) + len(changes['modified'])
+        if total_changes > 0:
+            logger.info(f"  🔔 Found {total_changes} changes:")
+            logger.info(f"    - {len(changes['added'])} added")
+            logger.info(f"    - {len(changes['modified'])} date changes")
+            logger.info(f"    - {len(changes['removed'])} removed")
+        else:
+            logger.info(f"  No changes detected")
+
     # Save results
     logger.info(f"\nTotal deadlines extracted: {len(all_deadlines)}")
 
@@ -487,11 +689,17 @@ def main():
         json.dump(all_deadlines, f, indent=2, ensure_ascii=False)
     logger.info("Saved to: deadlines.json")
 
-    # Save Markdown
-    markdown_content = format_deadlines_markdown(all_deadlines)
+    # Save Markdown (with changes highlighted)
+    markdown_content = format_deadlines_markdown(all_deadlines, changes)
     with open('deadlines.md', 'w', encoding='utf-8') as f:
         f.write(markdown_content)
     logger.info("Saved to: deadlines.md")
+
+    # Save changes summary if any
+    if changes and (changes['added'] or changes['removed'] or changes['modified']):
+        with open('changes.json', 'w', encoding='utf-8') as f:
+            json.dump(changes, f, indent=2, ensure_ascii=False)
+        logger.info("Saved changes to: changes.json")
 
     # Display if requested
     if args.display:

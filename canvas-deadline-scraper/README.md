@@ -133,10 +133,12 @@ Use Task Scheduler to run the script weekly.
 - ✅ Intelligent intro document detection (supports various naming conventions)
 - ✅ Multi-format support (PDF, DOCX, PPTX, TXT)
 - ✅ AI-powered deadline extraction
+- ✅ **Canvas announcements monitoring** - catches deadline changes posted by professors
+- ✅ **Automatic change detection** - compares with previous runs to highlight updates
 - ✅ Chronological sorting
 - ✅ Duplicate detection
 - ✅ Email notifications (optional)
-- ✅ Change tracking (detects updated deadlines)
+- ✅ Update highlighting with 🔔 markers
 
 ## Supported Intro Document Patterns
 
@@ -156,6 +158,58 @@ The scraper automatically identifies intro/syllabus documents using these patter
 - Week numbers: `Week 0`, `Week 1`, `Week01`
 
 The detection is smart enough to avoid false positives like "Lecture 5" or "Week 8"!
+
+## Deadline Update Detection 🔔
+
+The scraper automatically monitors for deadline changes:
+
+### What Gets Detected:
+
+1. **Canvas Announcements** (✅ Implemented)
+   - Extended deadlines
+   - Postponed exams
+   - Rescheduled submissions
+   - New assignments announced mid-semester
+   - Cancelled assessments
+
+2. **Changes Between Runs** (✅ Implemented)
+   - Date changes (e.g., Jan 20 → Jan 25)
+   - New deadlines added
+   - Removed/cancelled deadlines
+
+### Example Output:
+
+When you re-run the scraper, changes are highlighted at the top of `deadlines.md`:
+
+```markdown
+## ⚠️ RECENT CHANGES DETECTED
+
+### 📅 Date Changes:
+- **CS2103T** - Assignment 2: ~~2025-01-20~~ → **2025-01-25**
+
+### ✨ New Deadlines:
+- **CS2107** - Bonus Assignment (2025-02-01)
+```
+
+Updates from announcements are marked with 🔔:
+```markdown
+- **[ASSIGNMENT]** Assignment 2 (15%)
+  - 🔔 **UPDATE:** EXTENDED from Jan 20 to Jan 25
+  - _Source: Announcement: Assignment 2 Extension_
+```
+
+**See [UPDATE_DETECTION.md](UPDATE_DETECTION.md) for complete details.**
+
+### What About Email Updates?
+
+Currently monitors **Canvas announcements only** (which Canvas also emails you).
+
+**Email-only updates** (NUS Outlook, no Canvas announcement):
+- Not yet implemented
+- Can be added if needed - let me know!
+- Would use Microsoft Graph API to scan Outlook emails
+
+Most professors post on Canvas, so this covers 90%+ of cases.
 
 ## Troubleshooting
 

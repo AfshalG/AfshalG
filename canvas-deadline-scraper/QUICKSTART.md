@@ -89,6 +89,12 @@ The AI will find:
 - Presentation dates
 - Any other important dates with percentages/weights
 
+**Plus automatic update detection:**
+- Checks Canvas announcements for deadline changes
+- Compares with previous runs to highlight updates
+- Marks changes with 🔔 in your output
+- Shows what was extended, added, or cancelled
+
 ## Example Output
 
 ```markdown

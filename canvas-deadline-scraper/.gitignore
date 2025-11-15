@@ -7,6 +7,7 @@ downloaded_materials/
 # Output files
 deadlines.json
 deadlines.md
+changes.json
 
 # Logs
 *.log
