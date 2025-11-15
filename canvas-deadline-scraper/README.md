@@ -130,12 +130,32 @@ Use Task Scheduler to run the script weekly.
 ## Features
 
 - ✅ Automatic course enrollment detection
+- ✅ Intelligent intro document detection (supports various naming conventions)
 - ✅ Multi-format support (PDF, DOCX, PPTX, TXT)
 - ✅ AI-powered deadline extraction
 - ✅ Chronological sorting
 - ✅ Duplicate detection
 - ✅ Email notifications (optional)
 - ✅ Change tracking (detects updated deadlines)
+
+## Supported Intro Document Patterns
+
+The scraper automatically identifies intro/syllabus documents using these patterns:
+
+**Tested with real NUS course filenames:**
+- `L01a Introduction and Module Information.pdf` ✓
+- `EE2026_L0_intro.pdf` ✓
+- `2025_CS2107_Topic_0.pdf` ✓
+- `AY25-26 S1 ES2631 Course Schedule and Assessments_STUDENT.pdf` ✓
+- `LAH 1201 Syllabus.pdf` ✓
+
+**Detected patterns include:**
+- Lecture numbers: `L0`, `L00`, `L01`, `L1`, `L01a`, `Lec0`, `Lecture 1`
+- Topic numbers: `Topic 0`, `Topic_0`
+- Keywords: `intro`, `introduction`, `syllabus`, `course outline`, `schedule`, `overview`, `module information`, `assessment`, `course schedule`
+- Week numbers: `Week 0`, `Week 1`, `Week01`
+
+The detection is smart enough to avoid false positives like "Lecture 5" or "Week 8"!
 
 ## Troubleshooting
 
@@ -146,7 +166,8 @@ Use Task Scheduler to run the script weekly.
 
 ### "No files found"
 - Course materials might not be uploaded yet
-- Check the course file names - adjust `INTRO_KEYWORDS` in the script
+- Check `scraper.log` to see what files were detected
+- If your professor uses unusual naming, the script will list all available files in the log
 
 ### "AI extraction failed"
 - Some documents might be scanned images - use OCR preprocessing

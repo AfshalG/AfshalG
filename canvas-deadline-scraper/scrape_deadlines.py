@@ -8,6 +8,7 @@ import os
 import json
 import logging
 import argparse
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -58,9 +59,41 @@ ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 
 # Keywords to identify intro/syllabus documents
 INTRO_KEYWORDS = [
+    # Basic intro keywords
     'intro', 'introduction', 'syllabus', 'course outline',
     'schedule', 'overview', 'course info', 'course information',
-    'week 1', 'week1', 'lecture 1', 'lecture1', 'l01', 'lec1'
+    'module information', 'module info',
+
+    # Schedule and assessment keywords
+    'course schedule', 'assessment', 'assessments',
+
+    # Week/Lecture variations
+    'week 1', 'week1', 'week 0', 'week0',
+    'lecture 1', 'lecture1', 'lecture 0', 'lecture0',
+    'lec 1', 'lec1', 'lec 0', 'lec0',
+
+    # Topic variations
+    'topic 0', 'topic_0', 'topic0',
+
+    # Year/semester indicators combined with module codes
+    'ay24', 'ay25', 'ay26', 's1', 's2',
+]
+
+# Regex patterns for intro documents
+INTRO_PATTERNS = [
+    # Lecture number patterns: L0, L00, L01, L1, L01a, etc.
+    r'[_\s\-]?l0+[a-z]?[_\s\-]',  # L0, L00, L0a, L00a
+    r'[_\s\-]?l0*1[a-z]?[_\s\-]',  # L1, L01, L001, L1a, L01a
+
+    # Lec/Lecture patterns
+    r'lec[_\s\-]?0+[_\s\-]',  # lec0, lec00, lec_0
+    r'lec[_\s\-]?0*1[_\s\-]',  # lec1, lec01, lec_1
+
+    # Topic patterns
+    r'topic[_\s\-]?0',  # topic0, topic_0, topic 0
+
+    # Week patterns
+    r'week[_\s\-]?0*1[_\s\-]',  # week1, week01, week_1
 ]
 
 # Directory for downloaded files
@@ -292,7 +325,17 @@ Example format:
 def is_intro_document(filename: str) -> bool:
     """Check if filename suggests it's an intro/syllabus document"""
     filename_lower = filename.lower()
-    return any(keyword in filename_lower for keyword in INTRO_KEYWORDS)
+
+    # Check keywords first
+    if any(keyword in filename_lower for keyword in INTRO_KEYWORDS):
+        return True
+
+    # Check regex patterns
+    for pattern in INTRO_PATTERNS:
+        if re.search(pattern, filename_lower):
+            return True
+
+    return False
 
 
 def format_deadlines_markdown(deadlines: List[Dict]) -> str:
@@ -397,7 +440,12 @@ def main():
 
         if not intro_files:
             logger.warning(f"  No intro documents found for {course_name}")
-            logger.info(f"  Tip: Looking for files with keywords: {', '.join(INTRO_KEYWORDS)}")
+            logger.info(f"  Available files (first 10):")
+            for idx, f in enumerate(files[:10]):
+                logger.info(f"    - {f.get('filename', 'unnamed')}")
+            if len(files) > 10:
+                logger.info(f"    ... and {len(files) - 10} more")
+            logger.info(f"  Tip: Intro docs should contain keywords like: intro, syllabus, L0, L01, Topic 0, etc.")
             continue
 
         logger.info(f"  Found {len(intro_files)} intro documents")
