@@ -11,15 +11,12 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 
 - → Building agentic AI platforms with multi-step tool calling
 - → Developing IoT wearables for assistive HealthTech
-- → Open to Software Engineering / AI internships · SG 2025/26
+- → Open to Software Engineering / AI internships · SG 2026/27
 
 ---
 
 ### 🔗 Connect with me:
 [![Portfolio](https://img.shields.io/badge/Portfolio-afshalg.github.io-FF5733?style=for-the-badge&logo=github&logoColor=white)](https://afshalg.github.io)
-&nbsp;
-[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)
-[<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
 
 ---
 
@@ -32,44 +29,6 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 | 🎙️ | **Google for Singapore 2026** | Alongside Google APAC President | Feb 2026 |
 | 🏅 | **NUS IDEATE Semifinalist** — REHABAND | Top 16 of 500+ teams | Oct 2025 |
 | 🥈 | **DSTA BrainHack National Semifinalist** | AI/ML Engineering | Jun 2025 |
-
----
-
-### 🚀 Featured Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**[TaskGenie](https://taskgenie-ai.vercel.app/) — Agentic AI Task Manager**
-
-🏆 Judges' Choice · Featured by Google
-
-Multi-agent · 16 function-calling tools · 2000-dim vector search · 155+ components · Sub-500ms queries · 70%+ test coverage
-
-</td>
-<td width="50%" valign="top">
-
-**[REHABAND](https://github.com/AfshalG/rehaband-project) — Smart Rehab Wearable**
-
-🏅 NUS IDEATE Semifinalist · Top 16 of 500+
-
-IMU-based haptic coaching · Sub-$70 MVP · $1,000 fund secured · <50ms BLE latency
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top">
-
-**[Multi-Domain AI System](https://github.com/AfshalG/DSTA-BrainHack-2025) — CV · RL · Document Reconstruction**
-
-🥈 DSTA BrainHack National Semifinalist
-
-YOLOv8m 52.1% mAP · PPO agent 99.4% efficiency · 77.6% reconstruction accuracy · 3 models on GCP · Built in 24 hours
-
-</td>
-</tr>
-</table>
 
 ---
 
@@ -101,5 +60,5 @@ YOLOv8m 52.1% mAP · PPO agent 99.4% efficiency · 77.6% reconstruction accuracy
 ### 📊 Top Languages
 
 <div align="left">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=8&theme=radical"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=8&theme=radical&hide_border=false&count_private=true&cache_seconds=1800"/>
 </div>
