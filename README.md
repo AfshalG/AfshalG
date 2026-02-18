@@ -6,10 +6,21 @@
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-afshal--g-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/afshal-g)
-[![GitHub](https://img.shields.io/badge/GitHub-AfshalG-161B22?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AfshalG)
-[![Email](https://img.shields.io/badge/Email-afshalgulam%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:afshalgulam@gmail.com)
-[![Google](https://img.shields.io/badge/Featured_by-Google_2026-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://linkedin.com/in/afshal-g)
+<a href="https://linkedin.com/in/afshal-g">
+  <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" width="48" height="48" alt="LinkedIn"/>
+</a>
+&nbsp;
+<a href="https://github.com/AfshalG">
+  <img src="https://skillicons.dev/icons?i=github&theme=dark" width="48" height="48" alt="GitHub"/>
+</a>
+&nbsp;
+<a href="mailto:afshalgulam@gmail.com">
+  <img src="https://cdn.simpleicons.org/gmail/EA4335" width="48" height="48" alt="Gmail"/>
+</a>
+&nbsp;
+<a href="https://g.co/growwithgoogle">
+  <img src="https://cdn.simpleicons.org/google/4285F4" width="48" height="48" alt="Featured by Google 2026"/>
+</a>
 
 </div>
 
