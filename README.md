@@ -17,6 +17,9 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 
 ### 🔗 Connect with me:
 [![Portfolio](https://img.shields.io/badge/Portfolio-afshalg.github.io-FF5733?style=for-the-badge&logo=github&logoColor=white)](https://afshalg.github.io)
+&nbsp;
+[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)
+[<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
 
 ---
 
@@ -60,5 +63,5 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 ### 📊 Top Languages
 
 <div align="left">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=8&theme=radical&hide_border=false&count_private=true&cache_seconds=1800"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=8&theme=radical&cache_seconds=1800"/>
 </div>
