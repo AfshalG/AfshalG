@@ -15,23 +15,10 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 
 ---
 
-### 🔗 Connect with me:
-[![Portfolio](https://img.shields.io/badge/Portfolio-afshalg.github.io-FF5733?style=for-the-badge&logo=github&logoColor=white)](https://afshalg.github.io)
-&nbsp;
+### 🔗 Connect with me: &nbsp; [![Portfolio](https://img.shields.io/badge/Portfolio-FF5733?style=flat-square&logo=github&logoColor=white)](https://afshalg.github.io)
+
 [<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g)
 [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal)
-
----
-
-### 🏆 Recognition
-
-| | Award | | Date |
-|--|-------|--|------|
-| 🥇 | **NUS Orbital Judges' Choice Award** — TaskGenie | Top of 1,000+ teams | Aug 2025 |
-| ✨ | **Featured by Google** — Grow with Google SG60 | Gemini in Education | Dec 2025 |
-| 🎙️ | **Google for Singapore 2026** | Alongside Google APAC President | Feb 2026 |
-| 🏅 | **NUS IDEATE Semifinalist** — REHABAND | Top 16 of 500+ teams | Oct 2025 |
-| 🥈 | **DSTA BrainHack National Semifinalist** | AI/ML Engineering | Jun 2025 |
 
 ---
 
@@ -57,6 +44,18 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
     <img alt="VS Code" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg"/>
     <img alt="Linux" width="40px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"/>
 </p>
+
+---
+
+### 🏆 Recognition
+
+| | Award | | Date |
+|--|-------|--|------|
+| 🥇 | **NUS Orbital Judges' Choice Award** — TaskGenie | Top of 1,000+ teams | Aug 2025 |
+| ✨ | **Featured by Google** — Grow with Google SG60 | Gemini in Education | Dec 2025 |
+| 🎙️ | **Google for Singapore 2026** | Alongside Google APAC President | Feb 2026 |
+| 🏅 | **NUS IDEATE Semifinalist** — REHABAND | Top 16 of 500+ teams | Oct 2025 |
+| 🥈 | **DSTA BrainHack National Semifinalist** | AI/ML Engineering | Jun 2025 |
 
 ---
 
