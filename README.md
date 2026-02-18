@@ -17,7 +17,11 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 
 ### 🔗 Connect with me:
 
-[<img src="https://img.icons8.com/color/48/000000/linkedin.png"/>](https://linkedin.com/in/afshal-g) [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>](https://instagram.com/af.shal) [![Portfolio](https://img.shields.io/badge/Portfolio-FF5733?style=flat-square&logo=github&logoColor=white)](https://afshalg.github.io)
+<p align="center">
+<a href="https://linkedin.com/in/afshal-g"><img src="https://img.icons8.com/color/48/000000/linkedin.png" height="32"/></a>&nbsp;&nbsp;
+<a href="https://instagram.com/af.shal"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" height="32"/></a>&nbsp;&nbsp;
+<a href="https://afshalg.github.io"><img src="https://img.shields.io/badge/Portfolio-FF5733?style=flat-square&logo=github&logoColor=white" height="32"/></a>
+</p>
 
 ---
 
