@@ -56,11 +56,3 @@ I specialise in **Frontend Architecture and Interaction Design** — bridging co
 | 🎙️ | **Google for Singapore 2026** | Alongside Google APAC President | Feb 2026 |
 | 🏅 | **NUS IDEATE Semifinalist** — REHABAND | Top 16 of 500+ teams | Oct 2025 |
 | 🥈 | **DSTA BrainHack National Semifinalist** | AI/ML Engineering | Jun 2025 |
-
----
-
-### 📊 Top Languages
-
-<div align="left">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AfshalG&layout=compact&langs_count=8&theme=radical&cache_seconds=1800"/>
-</div>
