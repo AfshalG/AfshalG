@@ -10,7 +10,6 @@
 I specialise in **Frontend Architecture and Interaction Design** — bridging complex backend systems with polished, intuitive user experiences. From agentic AI platforms to assistive HealthTech, I make complex backend logic feel intuitive to users.
 
 - → Building agentic AI platforms with multi-step tool calling
-- → Developing IoT wearables for assistive HealthTech
 - → Open to Software Engineering / AI internships · SG 2026/27
 
 ---
