@@ -2,6 +2,7 @@
   "languages": [
     { "name": "TypeScript", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
     { "name": "Python", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
+    { "name": "Rust", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" },
     { "name": "JavaScript", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" },
     { "name": "C++", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" },
     { "name": "C", "icon": "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" }
