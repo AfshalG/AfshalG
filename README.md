@@ -9,7 +9,7 @@
 
 **Computer Engineering @ NUS.** I ship agentic AI from the model to the interface, and I move fast.
 
-`🍀 Software Engineering Analyst @ Fusion Fund` · Silicon Valley
+`🍀 SWE Analyst @ Fusion Fund` · Silicon Valley
 `🧠 Agentic AI platforms with multi-step tool calling`
 `⚡ First Rust app? Shipped in a week.`
 
